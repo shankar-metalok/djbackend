@@ -11,32 +11,27 @@ app.use(cors());
 
 const otpDatabase = {};
 
-
-
-
-
-
 // const transporter = nodemailer.createTransport({
 //   host: 'smtp.ethereal.email',
 //   port: 587, 
 //   secure: false, 
 //   auth: {
-//     user: 'alexanne18@ethereal.email',
-//     pass: 'jdYrnFhuTW8VJ3rej5',
-//   },
+//     user: 'kellen.senger27@ethereal.email',
+//     pass: 'YDPHnYeujVVRtrzrC5'
+//   }
 // });
-const transporter = nodemailer.createTransport({
-  host: 'smtp.ethereal.email',
-  port: 587,
+
+
+const transporter = nodemailer.createTransport({ 
+  service: 'gmail',
+  port: 587, 
+  secure: false, 
   auth: {
-      user: 'kellen.senger27@ethereal.email',
-      pass: 'YDPHnYeujVVRtrzrC5'
-  }
+    user: 'shankar.narsim4@gmail.com',
+    pass: 'rsdhhpegajoaodck',
+   
+  },
 });
-
-
-
-
 
 
 
@@ -51,8 +46,8 @@ app.post('/api/generate-otp', (req, res) => {
 
 
 const mailOptions = {
-    from: 'shankar.narsim4@gmail.com',
-    to: email, // 
+    from: 'dj app',
+    to: email, 
     subject: 'OTP Verification', 
     text: `Your OTP is: ${otp}`,
   };
@@ -66,9 +61,6 @@ const mailOptions = {
       res.json({ message: `OTP sent to ${email}. Please check your email.` });
     }
   });
-  
-
-
 
 });
 
